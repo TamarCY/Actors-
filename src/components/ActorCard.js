@@ -21,10 +21,8 @@ class ActorCard extends React.Component{
             <Card.Img variant="top" src={this.props.actor.imageURL} alt="shira hass img"/> 
             
             <Card.Body>
-            <Card.Title>{this.props.actor.fname} {this.props.actor.lname}</Card.Title>
-                {/* <p>{this.props.actor.fname} {this.props.actor.lname}</p>  */}
+                <div><a href={this.props.actor.imdbLink} target="blank"><Card.Title>{this.props.actor.fname} {this.props.actor.lname}</Card.Title></a></div> 
                 <Card.Text>{this.props.actor.calcAge()}
-                <div><a href={this.props.actor.imdbLink}>IMDB</a></div> 
                 </Card.Text>
             </Card.Body>           
            </Card>

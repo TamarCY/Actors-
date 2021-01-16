@@ -11,6 +11,8 @@ class ActorsView extends React.Component{
     constructor(props) {
         super(props);
         this.readText = this.readText.bind(this);
+        this.hasLetters = this.readText.bind(this);
+      
         this.state ={
             enteredText:"",
             cardsArr:[<ActorCard actor={this.props.actors[0]}/>,
@@ -23,18 +25,32 @@ class ActorsView extends React.Component{
         // var str = "Hello world, welcome to the universe.";
         // var n = str.includes("world");
     
+    hasLetters (object){
+        if((object.fname.toLowerCase().includes(this.state.enteredText))||
+         (object.lname.toLowerCase().includes(this.state.enteredText))){
+            console.log('cooooool!')
+            return true
+        }
+         
+    }
   
     readText (event){
         this.setState({
-            enteredText: event.target.value
+            enteredText: "s"
+            // event.target.value.toLowerCase()
         })
-        // const filteredArr = this.state.cardsArr(hasLetters)
-        // this.setState({
-        //     cardsArr: filteredArr
-        // })
+        // console.log(event.target)
+        const filteredArr = this.props.actors.filter(this.hasLetters)
+        // const filteredArr =  [<ActorCard actor={this.props.actors[1]}/>]
+        //  this.state.cardsArr(hasLetters)
+        
+        this.setState({
+            cardsArr: filteredArr
+        })
+        
 
-        //  console.log
-        // (this.state.enteredText)
+         console.log
+        (this.state.enteredText)
     };
        
 
@@ -62,10 +78,6 @@ class ActorsView extends React.Component{
                  </div>
 
                 <CardDeck style={{display:"flex"}}>
-                    {/* <ActorCard actor={this.props.actors[0]}/>
-                    <ActorCard actor={this.props.actors[1]}/>
-                    <ActorCard actor={this.props.actors[0]}/>
-                    <ActorCard actor={this.props.actors[1]}/> */}
                     {this.state.cardsArr}
                 </CardDeck>
                 

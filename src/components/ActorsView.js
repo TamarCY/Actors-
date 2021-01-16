@@ -12,30 +12,32 @@ class ActorsView extends React.Component{
         super(props);
         // this.filterActor = this.filterActor.bind(this);
         this.readText = this.readText.bind(this);
-    } 
+        this.state ={
+            enteredText:""
+        };
+        }
+    
     
 
     // filterActor (event){
     //     console.log('click')
     // }
     readText (event){
-        let inputText = event.target.value;
-        const temp = "shira"
-        if (temp.includes(inputText)){
-            console.log("yeeee!")
-        }
-        else{
-            console.log("booz!")
-
-        }
- }
+        this.setState({
+            enteredText: event.target.value
+        });
+        // console.log
+        // (this.state.enteredText)
+        console.log (this.actorsArr)}
+//         if (
+//             (this.actorsArr[0].fnmame.includs(this.state.enteredText)) ||
+//          (this.actorsArr[0].fnmame.includs(this.state.enteredText)))
+//          {
+//              console.log('includ')
+//          }
+//  }
+ 
     render(){
-        const actorsArr = []
-        actorsArr.push( new Actor ("Shira", "Has", 1995,
-        'https://www.imdb.com/name/nm6024635/?ref_=fn_al_nm_1'
-          , "https://m.media-amazon.com/images/M/MV5BN2RjMGNlNDgtMmM5Mi00NTEwLTk1MWItMDZkMGExMmM2ZmQ1XkEyXkFqcGdeQXVyNTQ4MzY4NjA@._V1_UY317_CR9,0,214,317_AL_.jpg" ));
-        actorsArr.push( new Actor ("Gila", "Almagor", 1939, "https://www.imdb.com/name/nm0021734/?ref_=fn_al_nm_1", "https://m.media-amazon.com/images/M/MV5BOGRhMjMzNTQtMGZjYS00NWJkLTkyOTItMjFhMjlmNDFhN2MxXkEyXkFqcGdeQXVyMjMyMzI4MzY@._V1_UY317_CR34,0,214,317_AL_.jpg"));
-       
        return ( 
            <div>
                  <h1>ActorDB</h1>
@@ -49,10 +51,10 @@ class ActorsView extends React.Component{
                  </div>
 
                 <CardDeck style={{display:"flex"}}>
-                    <ActorCard actor={actorsArr[0]}/>
-                    <ActorCard actor={actorsArr[1]}/>
-                    <ActorCard actor={actorsArr[0]}/>
-                    <ActorCard actor={actorsArr[1]}/>
+                    <ActorCard actor={this.props.actors[0]}/>
+                    <ActorCard actor={this.props.actors[1]}/>
+                    <ActorCard actor={this.props.actors[0]}/>
+                    <ActorCard actor={this.props.actors[1]}/>
                 </CardDeck>
                 
 

@@ -8,7 +8,8 @@ class Actor {
     }
     calcAge(){
         const currentYear = new Date().getFullYear();
-        return (currentYear - this.birthday);
+        const age = currentYear - this.birthday;
+         return age;
     }
 }
 

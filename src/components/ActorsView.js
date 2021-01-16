@@ -26,28 +26,34 @@ class ActorsView extends React.Component{
         // var n = str.includes("world");
     
     hasLetters (object){
-        if((object.fname.toLowerCase().includes(this.state.enteredText))||
-         (object.lname.toLowerCase().includes(this.state.enteredText))){
-            console.log('cooooool!')
-            return true
+        // if((object.fname.toLowerCase().includes(this.state.enteredText))||
+        //  (object.lname.toLowerCase().includes(this.state.enteredText))){
+        //     console.log('cooooool!')
+        //     return true}
+        console.log(object)
+        return false
         }
          
-    }
+    
   
     readText (event){
-        this.setState({
-            enteredText: "s"
-            // event.target.value.toLowerCase()
-        })
+       
         // console.log(event.target)
-        const filteredArr = this.props.actors.filter(this.hasLetters)
-        // const filteredArr =  [<ActorCard actor={this.props.actors[1]}/>]
-        //  this.state.cardsArr(hasLetters)
-        
+        if (this.props.actors[0].fname.includes(this.event.target)){
+            console.log('cooooool')
+        }
+        // const filteredArr = this.props.actors.filter(this.hasLetters)
+
+        // const filteredArr = this.props.actors.filter(this.hasLetters)
+        const filteredArr =  [<ActorCard actor={this.props.actors[1]}/>]
+       
         this.setState({
             cardsArr: filteredArr
         })
         
+        this.setState({
+            enteredText: event.target.value.toLowerCase()
+        })
 
          console.log
         (this.state.enteredText)

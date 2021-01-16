@@ -10,25 +10,36 @@ import Button from 'react-bootstrap/Button'
 class ActorsView extends React.Component{
     constructor(props) {
         super(props);
-        // this.filterActor = this.filterActor.bind(this);
         this.readText = this.readText.bind(this);
         this.state ={
-            enteredText:""
+            enteredText:"",
+            cardsArr:[<ActorCard actor={this.props.actors[0]}/>,
+                    <ActorCard actor={this.props.actors[1]}/>,
+                    <ActorCard actor={this.props.actors[0]}/>,
+                    <ActorCard actor={this.props.actors[1]}/>]
         };
         }
     
+        // var str = "Hello world, welcome to the universe.";
+        // var n = str.includes("world");
     
-
-    // filterActor (event){
-    //     console.log('click')
-    // }
+  
     readText (event){
         this.setState({
             enteredText: event.target.value
-        });
-        // console.log
+        })
+        // const filteredArr = this.state.cardsArr(hasLetters)
+        // this.setState({
+        //     cardsArr: filteredArr
+        // })
+
+        //  console.log
         // (this.state.enteredText)
-        console.log (this.actorsArr)}
+    };
+       
+
+
+        
 //         if (
 //             (this.actorsArr[0].fnmame.includs(this.state.enteredText)) ||
 //          (this.actorsArr[0].fnmame.includs(this.state.enteredText)))
@@ -51,10 +62,11 @@ class ActorsView extends React.Component{
                  </div>
 
                 <CardDeck style={{display:"flex"}}>
-                    <ActorCard actor={this.props.actors[0]}/>
+                    {/* <ActorCard actor={this.props.actors[0]}/>
                     <ActorCard actor={this.props.actors[1]}/>
                     <ActorCard actor={this.props.actors[0]}/>
-                    <ActorCard actor={this.props.actors[1]}/>
+                    <ActorCard actor={this.props.actors[1]}/> */}
+                    {this.state.cardsArr}
                 </CardDeck>
                 
 
@@ -63,6 +75,7 @@ class ActorsView extends React.Component{
        )
    
     }
-}
+    }
+
 
 export default ActorsView;
